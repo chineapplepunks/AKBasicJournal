@@ -1,0 +1,17 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Theme.Diary" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/grey1</item>
+        <item name="colorPrimaryVariant">@color/grey2</item>
+        <item name="colorOnPrimary">@color/grey5</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/grey4</item>
+        <item name="colorSecondaryVariant">@color/grey5</item>
+        <item name="colorOnSecondary">@color/grey1</item>
+        <item name="colorAccent">@color/grey3</item>
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor" tools:targetApi="l">@color/grey3</item>
+        <!-- Customize your theme here. -->
+    </style>
+</resources>

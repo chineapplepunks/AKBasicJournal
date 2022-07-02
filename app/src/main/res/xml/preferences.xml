@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <PreferenceCategory
+        android:title="General" />
+    <ListPreference
+        android:entries="@array/pref_font_size"
+        android:defaultValue="16"
+        app:useSimpleSummaryProvider="true"
+        android:entryValues="@array/pref_font_value"
+        android:key="font_size"
+        android:title="Font size" />
+
+    <EditTextPreference
+        android:defaultValue="Default value"
+        android:key="reset"
+        android:selectAllOnFocus="true"
+        android:singleLine="true"
+        android:title="Reset password" />
+    <PreferenceCategory android:title="Backup / Restore">
+
+    </PreferenceCategory>
+    <EditTextPreference
+        android:defaultValue="Default value"
+        android:key="backup"
+        android:selectAllOnFocus="true"
+        android:singleLine="true"
+        android:title="Backup" />
+    <EditTextPreference
+        android:defaultValue="Default value"
+        android:key="import"
+        android:selectAllOnFocus="true"
+        android:singleLine="true"
+        android:title="Restore" />
+    <EditTextPreference
+        android:defaultValue="Default value"
+        android:key="export"
+        android:selectAllOnFocus="true"
+        android:singleLine="true"
+        android:title="Export to text file" />
+    <PreferenceCategory android:title="Misc">
+
+    </PreferenceCategory>
+    <EditTextPreference
+        android:defaultValue="Default value"
+        android:key="about"
+        android:selectAllOnFocus="true"
+        android:singleLine="true"
+        android:title="About" />
+</PreferenceScreen>
