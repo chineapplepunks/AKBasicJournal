@@ -34,9 +34,23 @@
         <action
             android:id="@+id/action_settingsFragment_to_aboutFragment"
             app:destination="@id/aboutFragment" />
+        <action
+            android:id="@+id/action_settingsFragment_to_licenseFragment"
+            app:destination="@id/licenseFragment" />
+        <action
+            android:id="@+id/action_settingsFragment_to_entryFragment"
+            app:destination="@id/entryFragment" />
     </fragment>
     <fragment
         android:id="@+id/aboutFragment"
         android:name="com.akb.journal.fragment.AboutFragment"
         android:label="AboutFragment" />
+    <fragment
+        android:id="@+id/licenseFragment"
+        android:name="com.akb.journal.fragment.LicenseFragment"
+        android:label="LicenseFragment" >
+        <action
+            android:id="@+id/action_licenseFragment_to_settingsFragment"
+            app:destination="@id/settingsFragment" />
+    </fragment>
 </navigation>

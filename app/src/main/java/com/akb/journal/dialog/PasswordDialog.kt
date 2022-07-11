@@ -71,19 +71,28 @@ class PasswordDialog(private val context: Context,
             binding.lblError.visibility = View.GONE
             validateSetPassword()
         } else {
-            binding.lblError.setText("Current password is incorrect.")
+            binding.lblError.text = "Current password is incorrect."
+            clearTextBoxes()
             context.hideKeyboard(binding.root)
             binding.lblError.visibility = View.VISIBLE
         }
     }
 
+    private fun clearTextBoxes() {
+        binding.txtPassword.setText("")
+        binding.txtConfirm.setText("")
+        binding.txtPassword.requestFocus()
+    }
+
     private fun validateSetPassword() {
         if(binding.txtPassword.text.toString() != binding.txtConfirm.text.toString()) {
             binding.lblError.setText(R.string.str_set_password_err_match)
+            clearTextBoxes()
             context.hideKeyboard(binding.root)
             binding.lblError.visibility = View.VISIBLE
         } else if (binding.txtPassword.length() < 6) {
             binding.lblError.setText(R.string.str_set_password_characters)
+            clearTextBoxes()
             context.hideKeyboard(binding.root)
             binding.lblError.visibility = View.VISIBLE
         } else {

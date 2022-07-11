@@ -1,15 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<PreferenceScreen xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:android="http://schemas.android.com/apk/res/android">
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    android:theme="@style/AlertDialog">
     <PreferenceCategory
-        android:title="General" />
-    <ListPreference
-        android:entries="@array/pref_font_size"
-        android:defaultValue="16"
-        app:useSimpleSummaryProvider="true"
-        android:entryValues="@array/pref_font_value"
-        android:key="font_size"
-        android:title="Font size" />
+        android:title="General" >
+        <EditTextPreference
+            android:defaultValue="Normal"
+            android:key="font"
+            android:title="Font Size" />
+    </PreferenceCategory>
 
     <EditTextPreference
         android:defaultValue="Default value"
@@ -47,4 +45,10 @@
         android:selectAllOnFocus="true"
         android:singleLine="true"
         android:title="About" />
+    <EditTextPreference
+        android:defaultValue="Default value"
+        android:key="licenses"
+        android:selectAllOnFocus="true"
+        android:singleLine="true"
+        android:title="Licenses" />
 </PreferenceScreen>

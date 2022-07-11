@@ -14,7 +14,8 @@ import java.io.OutputStream
 
 @Database(
     entities = [Entry::class, Password::class],
-    version = 1
+    version = 1,
+    exportSchema = false
 )
 
 /**
@@ -32,13 +33,13 @@ abstract class EntryDatabase : RoomDatabase() {
     companion object {
         private lateinit var instance: EntryDatabase
 
+        private const val DB_NAME = "journal.db"
+
         /**
          * Builds the database.
          *
          * @param context The application context.
          */
-        private const val DB_NAME = "journal.db"
-
         fun create(context: Context): EntryDatabase {
             instance = Room.databaseBuilder(
                 context,

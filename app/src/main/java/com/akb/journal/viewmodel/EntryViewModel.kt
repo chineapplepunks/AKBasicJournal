@@ -37,6 +37,7 @@ class EntryViewModel(application: Application,
         }
     }
 
+
     fun getEntries() {
         viewModelScope.launch {
             entries.setValue(repository.getEntries())

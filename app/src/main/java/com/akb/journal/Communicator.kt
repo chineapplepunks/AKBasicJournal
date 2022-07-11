@@ -1,7 +1,7 @@
 package com.akb.journal
 
 import androidx.lifecycle.ViewModel
-import com.akb.journal.preference.Settings
+import com.akb.journal.viewmodel.SettingsViewModel
 import com.akb.journal.viewmodel.EntryViewModel
 import com.akb.journal.viewmodel.PasswordViewModel
 import java.util.*
@@ -16,7 +16,7 @@ import java.util.*
 class Communicator : ViewModel() {
     lateinit var entryViewModel: EntryViewModel
     lateinit var passwordViewModel: PasswordViewModel
-    lateinit var settings: Settings
+    lateinit var settingsViewModel: SettingsViewModel
     lateinit var date: Date
     var loginHash: String? = null
 }

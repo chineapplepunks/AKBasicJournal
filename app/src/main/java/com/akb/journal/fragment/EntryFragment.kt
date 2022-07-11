@@ -33,12 +33,6 @@ class EntryFragment : Fragment() {
     private val sdf = SimpleDateFormat("dd-MM-yyyy", Locale.getDefault())
     private var skipTextWatch = false
     private var editHistory = EditHistory()
-    private var newEntry = true
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setHasOptionsMenu(true)
-    }
 
     override fun onStop() {
         saveEntry()
@@ -63,7 +57,7 @@ class EntryFragment : Fragment() {
         entryViewModel = communicator.entryViewModel
         binding.lblDate.text = sdf.format(communicator.date)
 
-        binding.txtEntry.textSize = communicator.settings.getFontSize()
+        binding.txtEntry.textSize = communicator.settingsViewModel.getFontSize()
 
         binding.btnCal.setOnClickListener {
             animateDropCalendar()
@@ -199,7 +193,7 @@ class EntryFragment : Fragment() {
     }
 
     private fun deleteEntry() {
-        val builder: AlertDialog.Builder = AlertDialog.Builder(binding.root.context)
+        val builder: AlertDialog.Builder = AlertDialog.Builder(binding.root.context,R.style.AlertDialog)
         builder.setTitle("Delete Entry")
         builder.setMessage(
             "This will delete the current entry on screen.\nThis cannot be undone.\nAre you sure?")
@@ -286,6 +280,18 @@ class EntryFragment : Fragment() {
         }
     }
 
+    fun setSaveButton(enabled: Boolean) {
+        binding.materialToolbar2.menu.findItem(R.id.menu_save).apply {
+            isEnabled = enabled
+        }
+    }
+
+    fun setDeleteButton(enabled: Boolean) {
+        binding.materialToolbar2.menu.findItem(R.id.menu_delete).apply {
+            isEnabled = enabled
+        }
+    }
+
     private var textWatcher: CustomTextWatcher = object : CustomTextWatcher() {
         override fun beforeTextChanged(
             s: CharSequence,
@@ -315,6 +321,13 @@ class EntryFragment : Fragment() {
                 editHistory.position > 1,
                 editHistory.position < editHistory.history.size
             )
+            if(p0.isNullOrBlank()) {
+                setDeleteButton(false)
+                setSaveButton(false)
+            } else {
+                setDeleteButton(true)
+                setSaveButton(true)
+            }
         }
     }
 
