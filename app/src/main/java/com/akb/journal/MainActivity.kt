@@ -26,7 +26,7 @@ class MainActivity : AppCompatActivity() {
     /**
      * The starting point for our application.
      *
-     * All it does is create the Repo (whice creates the DB), creates the ViewModels,
+     * All it does is create the Repo (which creates the DB), creates the ViewModels,
      * creates the Communicator and the Settings preferences.
      *
      * @param savedInstanceState The bundle that holds a saved instance state. Not used.
@@ -49,19 +49,6 @@ class MainActivity : AppCompatActivity() {
         binding = LayoutMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-    }
-
-    /**
-     * When we press the back button on the Settings page, we want to go back to the Entry
-     * Fragment.
-     */
-    override fun onBackPressed() {
-        val currentFragment =
-            supportFragmentManager.fragments.last()?.childFragmentManager?.fragments?.get(0)
-        if(currentFragment is SettingsFragment) {
-            findNavController(R.id.main_fragment_view).navigate(
-                R.id.action_settingsFragment_to_entryFragment)
-        }
     }
 }
 

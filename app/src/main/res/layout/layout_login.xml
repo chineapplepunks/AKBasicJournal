@@ -62,7 +62,6 @@
                 app:layout_constraintTop_toBottomOf="@+id/txt_login" />
 
             <EditText
-                android:theme="@style/TextBox"
                 android:id="@+id/txt_login"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -71,6 +70,8 @@
                 android:hint="@string/str_login_password_hint"
                 android:importantForAutofill="no"
                 android:inputType="textPassword"
+                android:minHeight="48dp"
+                android:theme="@style/TextBox"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.504"
                 app:layout_constraintStart_toStartOf="parent"
@@ -116,5 +117,18 @@
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
+
+    <ImageButton
+        android:id="@+id/imageButton"
+        android:backgroundTint="?attr/backgroundColor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:minHeight="48dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_close"
+        app:tint="?attr/colorOnPrimary" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

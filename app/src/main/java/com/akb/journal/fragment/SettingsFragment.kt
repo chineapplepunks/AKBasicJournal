@@ -4,6 +4,10 @@ import android.app.Activity
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import android.widget.Toolbar
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
@@ -12,11 +16,15 @@ import androidx.preference.PreferenceFragmentCompat
 import com.akb.journal.Communicator
 import com.akb.journal.EntryDatabase
 import com.akb.journal.R
+import com.akb.journal.databinding.LayoutEntryBinding
+import com.akb.journal.databinding.LayoutPreferencesBinding
 import com.akb.journal.dialog.FontDialog
 import com.akb.journal.dialog.PasswordDialog
 import com.akb.journal.entity.Entry
 import com.akb.journal.viewmodel.PasswordViewModel
 import com.google.android.gms.oss.licenses.OssLicensesMenuActivity
+import com.google.android.material.R.*
+import com.google.android.material.appbar.MaterialToolbar
 import java.io.PrintWriter
 
 class SettingsFragment : PreferenceFragmentCompat() {
@@ -73,8 +81,18 @@ class SettingsFragment : PreferenceFragmentCompat() {
         fontDialog.create()
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        val binding = LayoutPreferencesBinding.bind(view)
+
+        binding.customToolbar.setNavigationOnClickListener {
+            findNavController().navigate(R.id.action_settingsFragment_to_entryFragment)
+        }
+    }
+
     override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
-        setPreferencesFromResource(R.xml.preferences, rootKey)
+        addPreferencesFromResource(R.xml.preferences)
     }
 
     override fun onDisplayPreferenceDialog(preference: Preference) = when {

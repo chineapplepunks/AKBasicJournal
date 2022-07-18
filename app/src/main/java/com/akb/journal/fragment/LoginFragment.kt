@@ -8,11 +8,13 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.akb.journal.Communicator
+import com.akb.journal.MainActivity
 import com.akb.journal.dialog.PasswordDialog
 import com.akb.journal.R
 import com.akb.journal.Util.Companion.generateHash
 import com.akb.journal.Util.Companion.hideKeyboard
 import com.akb.journal.databinding.LayoutLoginBinding
+import kotlin.system.exitProcess
 
 /**
  * The fragment used for the login.
@@ -64,6 +66,10 @@ class LoginFragment : Fragment() {
 
         binding.lytLogin.visibility = View.VISIBLE
         binding.pBar.visibility = View.GONE
+
+        binding.imageButton.setOnClickListener {
+            exitProcess(status=0)
+        }
 
         binding.btnLogin.setOnClickListener {
             val hash = generateHash(binding.txtLogin.text.toString())

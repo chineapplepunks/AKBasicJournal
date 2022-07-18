@@ -34,9 +34,9 @@ class EntryFragment : Fragment() {
     private var skipTextWatch = false
     private var editHistory = EditHistory()
 
-    override fun onStop() {
+    override fun onDetach() {
+        super.onDetach()
         saveEntry()
-        super.onStop()
     }
 
     private fun setTextWatcher() {
@@ -58,6 +58,11 @@ class EntryFragment : Fragment() {
         binding.lblDate.text = sdf.format(communicator.date)
 
         binding.txtEntry.textSize = communicator.settingsViewModel.getFontSize()
+
+        binding.materialToolbar2.setNavigationOnClickListener {
+            saveEntry()
+            findNavController().navigate(R.id.action_entryFragment_to_loginFragment)
+        }
 
         binding.btnCal.setOnClickListener {
             animateDropCalendar()
@@ -115,11 +120,6 @@ class EntryFragment : Fragment() {
                     saveEntry()
                     hideKeyboard()
                     findNavController().navigate(R.id.action_entryFragment_to_settingsFragment)
-                    true
-                }
-                R.id.menu_about -> {
-                    hideKeyboard()
-                    findNavController().navigate(R.id.action_entryFragment_to_aboutFragment)
                     true
                 }
                 R.id.menu_undo -> {

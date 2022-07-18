@@ -20,14 +20,16 @@
             android:layout_height="match_parent">
 
             <com.google.android.material.appbar.MaterialToolbar
-                android:background="?attr/colorPrimary"
-                android:layout_height="48dp"
-                android:layout_width="match_parent"
                 android:id="@+id/materialToolbar2"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:background="?attr/colorPrimary"
                 android:minHeight="?attr/actionBarSize"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:title="Diary Entry" />
+                app:navigationIcon="@drawable/ic_arrow_back"
+                app:navigationIconTint="?attr/colorOnPrimary"
+                app:title="Entry" />
 
             <com.google.android.material.appbar.MaterialToolbar
                 android:background="?attr/colorPrimary"
